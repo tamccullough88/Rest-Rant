@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 })
 
 // pull path from places.js
-app.use('/places', require('./controllers/places'))
+app.use('/places', require('./controllers/places.js'))
 
 // 404 page error for any page not found
 app.get('*', (req, res) => {
