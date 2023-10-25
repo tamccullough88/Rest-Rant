@@ -7,10 +7,14 @@ const express = require('express')
 // create instance of the app
 const app = express()
 
+//create home page route
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 
 //creating the paths/routes
 app.get('/', (req, res) => {
-    res.send('Hello world!')
+    res.render('home')
 })
 
 // pull path from places.js
