@@ -15,11 +15,15 @@ app.use(express.static('public'))
 
 // pull path from places.js
 app.use('/places', require('./controllers/places.js'))
+app.use(express.urlencoded({ extended: true }))
+
 
 //creating the paths/routes
 app.get('/', (req, res) => {
     res.render('home')
 })
+
+//
 
 
 
