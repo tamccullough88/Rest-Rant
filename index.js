@@ -7,15 +7,20 @@ const express = require('express')
 // create instance of the app
 const app = express()
 
+//method-override
+const methodOverride = require('method-override')
+
 //create home page route
-app.use(express.urlencoded({ extended: true }))
+
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
+app.use(methodOverride('_method'))
+app.use(express.urlencoded({ extended: true }))
 
 // pull path from places.js
-app.use('/places', require('./controllers/places.js'))
+app.use('/places', require('./controllers/places_controller.js'))
 
 
 
