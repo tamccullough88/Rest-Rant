@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
 
 //details showing a particular place
 router.get('/:index', (req, res) => {
-    console.log(places, req.params.index)
+    // console.log(places, req.params.index)
     const index = req.params.index
     if (places[index]) {
         res.render('places/Show', {
@@ -44,27 +44,32 @@ router.get('/:index', (req, res) => {
     })
 } else {
         res.render('error404')
+        
     }
 })
 
-
-
 //update a particular place
-router.put('/:id', (req,res) => {
-    res.render('PUT /places/:id')
+router.put('/:index', (req,res) => {
+ 
+  let index = req.params.index
+  console.log(index)
+  let body = req.body
+  places[index] = body
+  res.redirect(`/places/${index}`)
 })
+
+
 
 //form page for editing a place
 router.get('/:index/edit', (req, res) => {
-   const index = req.params.index
+  const index = req.params.index
     if (places[index]) {
         res.render('places/edit', {
         place: places[index],
         index,
     })
-} else {
-        res.render('error404')
-    }
+}
+console.log(index)
   })
   
 
