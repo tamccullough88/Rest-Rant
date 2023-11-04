@@ -24,6 +24,9 @@ router.get('/new', (req, res) => {
 
 //create new place
 router.post('/', (req, res) => {
+  for (const [key, value] of Object.entries(req.body)) {
+    if (!value) delete req.body[key]
+  }
     db.Place.create(req.body)
       .then (() => {
         res.redirect('/places')
@@ -38,9 +41,11 @@ router.post('/', (req, res) => {
 
 
 //details showing a particular place
-router.get('/:index', (req, res) => {
-  db.Place.findById(req.params.index)
+router.get('/:id', (req, res) => {
+
+    db.Place.findById(req.params.id)
     .then(place => {
+      console.log(place)
       res.render('places/show', { place })
     })
     .catch(err => {

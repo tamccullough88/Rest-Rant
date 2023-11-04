@@ -10,7 +10,7 @@ return (
                     <div className="row">
                         <div className="form-group col-sm-6">
                             <label htmlFor="name">Place Name</label>
-                            <input className="form-control" id="name" name="name" required />
+                            <input className="form-control" id="name" name="name"/>
                         </div>
                         <div className="form-group col-sm-6">
                             <label htmlFor="pic">Place Picture</label>
@@ -80,8 +80,13 @@ return (
                     </div>
                     <div className="row">
                         <div className="form-group col-sm-6">
-                            <label for="founded">Founded Year</label>
-                            <input className="form-control" id="founded" name="founded" />
+                            <label htmlFor="founded">Founded Year</label>
+                            <input 
+                                type="number"
+                                className="form-control" 
+                                id="founded" 
+                                name="founded"
+                                />
                         </div>
                         <div className="form-group col-sm-6">
                             <label htmlFor="cuisines">Cuisines</label>

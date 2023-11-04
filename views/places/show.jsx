@@ -5,15 +5,18 @@ function Show (data) {
     return (
         <Def title={data.place.name}>
             <main>
-            <div>
-            <div className="d-md-flex xlex-md-equal w-100 my-md-2 ps-md-2">
-            <div className="col-sm-6" ><img src={data.place.pic}></img></div>
-            <div className="col-sm-6">
-            <h1> {data.place.name} </h1>
-            <h2 className="text-center">Description</h2>
-            <p className="text-center">Located in: {data.place.city}, {data.place.state}</p>
-            <p className="text-center">Serves: {data.place.cuisines} </p>
-            <h2>Ratings:</h2>
+            <div >
+            <div className="row">
+            <div className="col-sm-6"> 
+                <img className="col-sm-10 img-fluid" src={data.place.pic} alt={data.place.name}/>
+                <p className="text-center">Located in: {data.place.city}, {data.place.state}</p>
+                </div>
+            <div className="col-sm-5">
+                <h1> {data.place.name} </h1>
+                <h2 className="text-center">Description</h2>
+                <h3>{data.place.showEstablished()}</h3>
+                <p className="text-center">Serves: {data.place.cuisines} </p>
+                <h2>Ratings:</h2>
             </div>
         </div>
         <div>
