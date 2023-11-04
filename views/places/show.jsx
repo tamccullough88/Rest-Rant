@@ -6,8 +6,8 @@ function Show (data) {
         <Def title={data.place.name}>
             <main>
             <div>
-            <div className="d-md-flex xlex-md-equal w-100 my-md-3 ps-md-3">
-            <div><img src={data.place.pic}></img></div>
+            <div className="d-md-flex xlex-md-equal w-100 my-md-2 ps-md-2">
+            <div className="col-sm-6" ><img src={data.place.pic}></img></div>
             <div className="col-sm-6">
             <h1> {data.place.name} </h1>
             <h2 className="text-center">Description</h2>
