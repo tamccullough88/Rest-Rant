@@ -12,7 +12,8 @@ const placeSchema = new Schema({
     type: Number,
     min: [1776, "Yay America, but this restaurant isn't that old, is it?"],
     max:[new Date().getFullYear(), "It's it's not open yet, you can't possibly know how it is!"]
-    }
+    },
+    comments: [{type: mongoose.Schema.Types.ObjectId, ref :'Comment'}]
 })
 
 placeSchema.methods.showEstablished = function(){
