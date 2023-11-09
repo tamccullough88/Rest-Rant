@@ -117,8 +117,10 @@ router.post('/:id/comment', (req, res) => {
 
 //delete a particular place
 router.delete('/:id', async (req,res) => {;
-await db.Place.findByIdAndDelete(req.paramsid);
-res.status(303).redirect('/places')
+await db.Place.findByIdAndDelete(req.params.id);
+res.redirect('/places')
+console.log('deleted:', req.params.id)
+
 })
 
 
