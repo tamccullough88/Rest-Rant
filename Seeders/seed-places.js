@@ -15,15 +15,6 @@ db.Place.create([{
     pic: '/images/pexels-atahan-demir-16255186.jpg',
     rants: 'cute cats all over',
     founded: 2020
-},
-{
-    name: 'Coding Cafe',
-    city: 'Phnix',
-    state: 'AZ',
-    cuisines: 'Coffee',
-    pic: '/images/pexels-atahan-demir-16255186.jpg',
-    rants: 'cute cats all over',
-    founded: 2023
 }])
 .then(() =>{
     console.log('success')
