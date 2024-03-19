@@ -13,7 +13,7 @@ const methodOverride = require('method-override')
 //create home page route
 
 app.set('views', __dirname + '/views')
-app.set('view engine', 'jsx')
+app.set('view engine', 'tsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
 app.use(methodOverride('_method'))

@@ -1,7 +1,6 @@
-const React = require('react')
-const Def = require('../default')
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react"
 
-function Show(data) {
+function Show(data: { place: { comments: { length: number; reduce: (arg0: (tot: any, c: { stars: any }) => any, arg1: number) => any; map: (arg0: (c: any) => JSX.Element) => JSX.Element }; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined; pic: string | undefined; city: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; state: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; showEstablished: () => string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; cuisines: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; id: any } }) {
     let comments = (
         <h3 className="inactive">
             No Rants Or Raves Yet!
@@ -11,7 +10,7 @@ function Show(data) {
         <h3 className="inactive"> Not Yet Rated!</h3>
     )
     if (data.place.comments.length) {
-        let sumRatings = data.place.comments.reduce((tot, c) => {
+        let sumRatings = data.place.comments.reduce((tot: any, c: { stars: any }) => {
             return tot + c.stars
         }, 0)
         let averageRating = sumRatings / data.place.comments.length
@@ -31,7 +30,7 @@ function Show(data) {
                     <h3 className="rant">{c.rant ? 'Rant!' : 'Rave!'}</h3>
                     <h4>{c.content}</h4>
                     <h5>
-                        <stong>- {c.author}</stong>
+                        {c.author}
                     </h5>
                     <h6>Rating: {c.stars}</h6>
                 </div>
@@ -48,7 +47,7 @@ function Show(data) {
                 <div >
                     <div className="row">
                         <div className="col-sm-6">
-                            <img className="col-sm-10 img-fluid" src={data.place.pic} alt={data.place.name} />
+                            <img className="col-sm-10 img-fluid" src={data.place.pic} />
                             <p className="text-center">Located in: {data.place.city}, {data.place.state}</p>
                         </div>
                         <div className="col-sm-5">
@@ -75,8 +74,8 @@ function Show(data) {
                                 <input type="text" className="form-control" id="content" name="content" placeholder="Want To Rant Or Rave? Tell Us Here!" />
                             </div>
                             <div className="form-group col-sm-4">
-                                <label input="text" htmlFor="author" key="author">Author</label>
-                                <input className="form-control" id="author" name="author" />
+                                <label htmlFor="author" key="author">Author</label>
+                                <input type="text" className="form-control" id="author" name="author" />
                             </div>
                             <div className="form-group col-sm-4">
                                 <label htmlFor="stars" key="stars">Star Rating </label><br />
